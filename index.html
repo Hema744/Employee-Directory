@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+        <title>Employee Directory</title>
+        
+    </head>
+    <body>
+        <header class="header"></header>
+        <link rel="stylesheet" href="style.css">
+        <div class="main-container d-flex flex-row">
+            <div class="search-container d-flex flex-row">
+                <h1>Employee Directory</h1>
+                
+                    <input type="text" id="searchInput"  placeholder="Search by name or email" onkeyup="searchEmployees()">
+            </div>
+                    
+                
+            
+            </header>
+            <div class="toolbar d-flex flex-row">
+                <label>Sort:
+                    <select id="sortBy" onChange="sortEmployees()">
+                        <option value="">__Select__</option>
+                        <option value="firstName">First Name</option>
+                        <option value="department">Department</option>
+                    </select>
+                </label>
+
+                <label>Show:
+                    <select id="pageSize" onChange="changePageSize()">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                </label>
+
+                
+            </div>
+
+            <div class="employee-container d-flex flex-row" id="employeeContainer" >
+                <div class="employee-card">
+                    <p><strong>Alice Smith</p></strong>
+                    <p><strong>Email:</strong> alice@example.com</p>
+                    <p><strong>Department:</strong>HR</p>
+                    <p><strong>Role:</strong>Manager</p>
+                    <div class="button">
+                        <button onclick="editEmployee($emp.id)">Edit</button>
+                        <button onclick="deleteEmployee($emp.id)">Delete</button>
+                    </div>
+                </div>
+
+
+                    <div class="employee-card">
+                        <p><strong>Bob Johnson</p></strong>
+                        <p><strong>Email:</strong> bob@example.com</p>
+                        <p><strong>Department:</strong>IT</p>
+                        <p><strong>Role:</strong>Developer</p>
+                        <div class="button">
+                            <button onclick="editEmployee($emp.id)">Edit</button>
+                            <button onclick="deleteEmployee($emp.id)">Delete</button>
+                        </div>
+                    </div>
+                    <div class="employee-card">
+                        <p><strong>Charlie Lee</strong>
+                        <p><strong>Email:</strong> charlie@example.com</p>
+                        <p><strong>Department:</strong>Finance</p>
+                        <p><strong>Role:</strong>Analyst</p>
+                        <div class="button">
+                            <button onclick="editEmployee($emp.id)">Edit</button>
+                            <button onclick="deleteEmployee($emp.id)">Delete</button>
+                        </div>
+                </div>
+            
+
+                <div class="filter-sidebar-container">
+                    <h3>Filter Employees</h3>
+                    <label>Name:
+                        <input  type="text"  id="filterFirstName"/>
+                    </label>
+                    <label>Department:
+                        <input type="text"  id="filterDepartment"/>
+                    </label>
+                    <label>Role:
+                        <input type="text"  id="filterRole"/>
+                    </label>
+                    <div class="button m-2">
+                        <button onclick="applyFilter()">Apply</button>
+                        <button onclick="resetFilter()">Reset</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer>
+                <p> 2025 Employee Dictory App. All rights reserved.</p>
+            </footer>
+
+            <div class="modal" id="addForm">
+                <div clas="modal-content">
+                    <h2 id="formTitle">Add Employess</h2>
+                    <form id="employeeForm">
+                        <input type="hidden" id="employeeId"/>
+                        <input type="text"  id="firstName" required/>
+                        <input type="text"  id="lastName" required/>
+                        <input type="email"  id="email" required/>
+                        <input type="text"  id="department" required />
+                        <input type="text" id="role" required/>
+                        <div class="form-actions">
+                            <button type="button" onclick="closeForm()">Cancel</button>
+                            <button type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </body>
+        </html>
+
+        </body>
+
+
+        </body>
+    </html>
